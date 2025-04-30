@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Star } from 'lucide-react'
+import Image from "next/image";
 
 const testimonials = [
   {
@@ -62,10 +63,10 @@ export default function Testimonials() {
                 ))}
               </div>
               <p className="font-inter text-steel mb-6">
-                "{testimonial.content}"
+                {`"{testimonial.content}"`}
               </p>
               <div className="flex items-center">
-                <img
+                <Image
                   src={testimonial.image}
                   alt={testimonial.name}
                   className="w-12 h-12 rounded-full object-cover mr-4"

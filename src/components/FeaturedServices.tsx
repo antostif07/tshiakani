@@ -1,37 +1,14 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Droplet, Mountain, Leaf } from 'lucide-react'
 import Link from 'next/link'
-
-const services = [
-  {
-    icon: <Droplet size={40} className="text-gold" />,
-    title: 'Oil & Gas',
-    description: 'Leading innovation in exploration and sustainable energy solutions.',
-    image: 'https://images.pexels.com/photos/247763/pexels-photo-247763.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750',
-    href: '/services#oil-gas'
-  },
-  {
-    icon: <Mountain size={40} className="text-gold" />,
-    title: 'Mining',
-    description: 'Responsible resource extraction with cutting-edge technology.',
-    image: 'https://images.pexels.com/photos/1579264/pexels-photo-1579264.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750',
-    href: '/services#mining'
-  },
-  {
-    icon: <Leaf size={40} className="text-gold" />,
-    title: 'Agriculture',
-    description: 'Sustainable farming practices and innovative technologies.',
-    image: 'https://images.pexels.com/photos/440731/pexels-photo-440731.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750',
-    href: '/services#agriculture'
-  }
-]
+import {allServices} from "@/src/constants";
+import Image from "next/image";
 
 export default function FeaturedServices() {
   return (
     <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-24">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -39,15 +16,15 @@ export default function FeaturedServices() {
           className="text-center mb-16"
         >
           <h2 className="font-montserrat text-3xl md:text-4xl font-bold mb-6 text-navy">
-            Our Core Services
+            {`Nos Domaines d'Activité`}
           </h2>
           <p className="font-inter text-lg text-steel max-w-2xl mx-auto">
-            Discover how our innovative solutions are transforming industries and creating sustainable value.
+            Découvrez comment nos solutions innovantes transforment les secteurs et créent de la valeur durable.
           </p>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {services.map((service, index) => (
+          {allServices.map((service, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
@@ -57,7 +34,7 @@ export default function FeaturedServices() {
               className="group relative overflow-hidden rounded-lg shadow-lg"
             >
               <div className="absolute inset-0">
-                <img
+                <Image
                   src={service.image}
                   alt={service.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
